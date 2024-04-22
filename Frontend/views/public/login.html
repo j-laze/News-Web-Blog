@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/9d291d4d76.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../assets/images/infostream-favicon-red.png"
+    />
+    <link rel="stylesheet" href="../../styles/generic.css" />
+    <link rel="alternative stylesheet" href="../../styles/login.css" />
+    <title>Infostream - Login</title>
+  </head>
+  <body>
+    <div class="modal">
+      <div class="login_form">
+        <form>
+          <img class="logo" src="../../assets/images/logo-no-background.png" />
+
+          <a href="/Frontend/views/public/index.html"
+            ><i class="fa fa-chevron-left close_form"></i
+          ></a>
+
+          <div class="form_group">
+            <label for="email"
+              >Email Address<span class="highlighted">*</span></label
+            >
+            <input
+              type="text"
+              id="email"
+              placeholder="Enter your Email Address"
+              required
+            />
+          </div>
+          <div class="form_group">
+            <label for="password"
+              >Password<span class="highlighted">*</span></label
+            >
+            <input
+              type="text"
+              id="password"
+              placeholder="Enter your Password"
+              required
+            />
+          </div>
+
+          <div class="buttons">
+            <button class="button">Login</button>
+            <p>
+              Not a member?
+              <span class="highlighted"
+                ><a href="/Frontend/views/public/sign_up.html"
+                  >Sign up here!</a
+                ></span
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
