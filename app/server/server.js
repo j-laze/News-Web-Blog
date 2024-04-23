@@ -5,9 +5,6 @@ app.set('views', path.join('client/', 'views'));
 app.set("view engine", "ejs");
 app.use(express.static("client/public"));
 
-app.get("/", (req, res) => {
-    res.render("index", { title: "Home" });
-})
 
 
 
