@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "tayyab",
+    "database": "Blog_Database",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "tayyab",
+    "database": "Blog_Database",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "tayyab",
+    "database": "Blog_Database",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
