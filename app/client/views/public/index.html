@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../../scripts/generic.js"></script>
 
     <script
       src="https://kit.fontawesome.com/9d291d4d76.js"
@@ -20,21 +25,13 @@
   <body>
     <header>
       <img class="logo" src="../../assets/images/logo-no-background.png" />
-      <i class="fa fa-bars menu_toggle"></i>
-      <ul class="nav_bar">
+      <i class="fa fa-bars menu_toggle" id="menu_toggle"></i>
+      <ul class="nav_list" id="nav_list">
         <li><a href="#">Home</a></li>
         <li><a href="#">Post</a></li>
         <!-- <li><a href="#">Login</a></li> -->
         <li>
-          <a href="#">
-            <i class="fa fa-user"></i>
-            User
-            <i class="fa fa-chevron-down chevron_down"></i>
-          </a>
-          <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#" class="logout">Logout</a></li>
-          </ul>
+          <a href="login.html"> Login </a>
         </li>
       </ul>
     </header>

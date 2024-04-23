@@ -1,4 +1,188 @@
-.logo {
-  height: auto;
-  width: 30%;
+@font-face {
+  font-family: AlbertSans;
+  src: url("../assets/fonts/Albert Sans.ttf");
 }
+
+* {
+  box-sizing: border-box;
+  font-family: AlbertSans;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: AlbertSans;
+  color: black;
+  margin: 5px;
+}
+
+/* Nav-bar styling start */
+header {
+  background: #f3f3f3;
+  height: 66px;
+}
+
+.logo {
+  float: left;
+  padding: 10px;
+  /* border: 1px solid red; */
+  height: 60px;
+  margin-left: 1em;
+}
+
+header * {
+  color: black;
+}
+
+header ul {
+  float: right;
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chevron_down {
+  font-size: 0.8em;
+}
+
+.nav_list li {
+  float: left;
+  position: relative;
+}
+
+.nav_list li ul {
+  position: absolute;
+  top: 66px;
+  right: 0;
+  width: inherit;
+  display: none;
+  background: #f3f3f3;
+}
+
+.nav_list li:hover ul {
+  display: block;
+}
+
+.nav_list li ul li {
+  width: 100%;
+}
+
+.nav_list li ul li a {
+  padding: 10px;
+}
+
+.logout {
+  color: red;
+}
+
+.nav_list li ul li a:hover {
+  background: #cfcfcf;
+}
+
+.nav_list li a {
+  display: block;
+  padding: 21px;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.nav_list li a:hover {
+  background: #cfcfcf;
+}
+
+.menu_toggle {
+  display: none;
+}
+
+/* Nav-bar styling end */
+
+/* Content start */
+
+main {
+  width: 90%;
+  margin: 30px auto 30px;
+  border: 1px solid red;
+}
+
+.main_content {
+  width: 100%;
+}
+
+/* Content end */
+
+/* Media Queries start*/
+
+@media only screen and (max-width: 750px) {
+  header {
+    position: relative;
+  }
+
+  header ul {
+    width: 100%;
+    background: #cfcfcf;
+    max-height: 0;
+    /* border: 1px solid red; */
+    overflow: hidden;
+  }
+
+  .showing {
+    max-height: 100em;
+  }
+
+  .nav_list li {
+    width: 100%;
+  }
+
+  .nav_list li a:hover {
+    background: #f3f3f3;
+  }
+
+  .nav_list li ul {
+    position: static;
+    width: inherit;
+    display: block;
+  }
+
+  .nav_list li ul li a {
+    padding: 10px;
+    background: #cfcfcf;
+    padding-left: 30px;
+  }
+
+  .nav_list li ul li a:hover {
+    background: #f3f3f3;
+  }
+
+  .logout {
+    color: red;
+  }
+
+  .menu_toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .logo {
+    float: left;
+    padding: 10px;
+    padding-top: 20px;
+    /* border: 1px solid red; */
+    height: 60px;
+  }
+}
+
+/* Media Queries end */

@@ -8,6 +8,7 @@ body {
 /* Form styling start */
 
 .close_form {
+  color: black;
   position: absolute;
   left: 0;
   top: 0;
@@ -31,7 +32,7 @@ body {
   top: 100%;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: #de0000;
   transition: 0.3s;
 }
