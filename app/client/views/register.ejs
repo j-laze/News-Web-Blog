@@ -11,10 +11,12 @@
     <link
       rel="icon"
       type="image/png"
-      href="../public/assets/images/infostream-favicon-red.png"
-    />
-    <link rel="stylesheet" href="../public/styles/generic.css" />
-    <link rel="alternative stylesheet" href="../public/styles/form.css" />
+      href="/assets/images/infostream-favicon-red.png"/>     <!-- same issue here dont know why image not showing -->
+
+
+
+    <link rel="stylesheet" href="/styles/generic.css" />
+    <link rel="alternative stylesheet" href="/styles/form.css" />
     <title>Infostream - Sign up</title>
   </head>
   <body>
@@ -23,7 +25,7 @@
         <form action="/register" method="post">
           <img class="logo" src="../public/assets/images/logo-no-background.png" />
 
-          <a href="logged_in_index.ejs"><i class="fa fa-chevron-left close_form"></i></a>
+          <a href="/index.html"><i class="fa fa-chevron-left close_form"></i></a>
 
           <div class="form_group">
             <label for="email">Email Address<span class="highlighted">*</span></label>
@@ -46,7 +48,7 @@
             <button type="submit" class="button" id="register_btn">Register</button>
             <p>
               Already have an account?
-              <span class="highlighted"><a href="login.ejs">Login</a></span>
+              <span class="highlighted"><a href="/login">Login</a></span>
             </p>
           </div>
         </form>

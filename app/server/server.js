@@ -13,12 +13,12 @@ app.use(express.static("client/public"));
 const userRouter = require('./routes/user');
 const registerRouter = require('./routes/register');
 //const postRouter = require('./routes/post');
-//const loginRouter = require('./routes/login')(passport);
+const loginRouter = require('./routes/login');
 
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
 //app.use('/post', postRouter);
-//app.use('/login', loginRouter);
+app.use('/login', loginRouter);
 
 const posts = [
     { id: 1, title: "foo" },
@@ -34,10 +34,6 @@ app.get("/authed/posts/:id", (req, res) => {
     const post = posts.find((post) => post.id == post_id);
 
 
-app.get('/', (req, res) => {
-    res.render("index", { title: "Home Page" });
-
-});
 
     if (post) {
         res.render(`post${post.id}`, { post });

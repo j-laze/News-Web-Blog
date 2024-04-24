@@ -1,9 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { User } = require('../../database/models'); // Assuming User model is exported from models/index.js
+const { User } = require('../../database/models'); // user models from db
 const router = express.Router();
 
-router.use(express.json()); // for parsing application/json
+router.use(express.json()); // for parsing json
 router.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         });
         console.log('User created:', user.toJSON());
 
-        // Redirect to login page or wherever you want
+        // Redirect to login page
         res.redirect('/login');
     } catch (error) {
         console.error(error);
