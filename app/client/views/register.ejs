@@ -20,66 +20,33 @@
   <body>
     <div class="modal">
       <div class="login_form">
-        <form>
-          <img
-            class="logo"
-            src="../public/assets/images/logo-no-background.png"
-          />
+        <form action="/register" method="post">
+          <img class="logo" src="../public/assets/images/logo-no-background.png" />
 
-          <a href="index2.html"
-            ><i class="fa fa-chevron-left close_form"></i
-          ></a>
+          <a href="logged_in_index.ejs"><i class="fa fa-chevron-left close_form"></i></a>
 
           <div class="form_group">
-            <label for="email"
-              >Email Address<span class="highlighted">*</span></label
-            >
-            <input
-              type="text"
-              id="email"
-              placeholder="Enter your Email Address"
-              required
-            />
+            <label for="email">Email Address<span class="highlighted">*</span></label>
+            <input type="text" id="email" name="email" placeholder="Enter your Email Address" required />
           </div>
           <div class="form_group">
-            <label for="username"
-              >Username<span class="highlighted">*</span></label
-            >
-            <input
-              type="text"
-              id="username"
-              placeholder="Enter a Username"
-              required
-            />
+            <label for="username">Username<span class="highlighted">*</span></label>
+            <input type="text" id="username" name="username" placeholder="Enter a Username" required />
           </div>
           <div class="form_group">
-            <label for="password"
-              >Password<span class="highlighted">*</span></label
-            >
-            <input
-              type="text"
-              id="password"
-              placeholder="Enter a Password"
-              required
-            />
+            <label for="password">Password<span class="highlighted">*</span></label>
+            <input type="password" id="password" name="password" placeholder="Enter a Password" required />
           </div>
           <div class="form_group">
-            <label for="confirm_password"
-              >Confirm Password<span class="highlighted">*</span></label
-            >
-            <input
-              type="text"
-              id="password"
-              placeholder="Confirm your Password"
-              required
-            />
+            <label for="confirm_password">Confirm Password<span class="highlighted">*</span></label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your Password" required />
           </div>
 
           <div class="buttons">
-            <button class="button" id="register_btn">Register</button>
+            <button type="submit" class="button" id="register_btn">Register</button>
             <p>
               Already have an account?
-              <span class="highlighted"><a href="login.html">Login</a></span>
+              <span class="highlighted"><a href="login.ejs">Login</a></span>
             </p>
           </div>
         </form>
