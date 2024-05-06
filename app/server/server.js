@@ -25,6 +25,14 @@ const posts = [
     { id: 2, title: "bah" },
 ];
 
+const users = [
+  { user_id: 1, username: "qwerty123"}
+]
+
+app.listen(5000, () => {
+  console.log("Server is running on port 5000");
+});
+
 app.get("/authed", (req, res) => {
     res.render("logged_in_index", { posts });
 });
@@ -42,5 +50,18 @@ app.get("/authed/posts/:id", (req, res) => {
     }
 });
 
-app.listen(5000, () => { console.log("Server is running on port 5000") });
+app.get("/authed/create_post", (req, res) => {
+  res.render("create_post");
+});
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.get("/authed/user", (req, res) => {
+  res.render("profile");
+});

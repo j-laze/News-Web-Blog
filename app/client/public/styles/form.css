@@ -7,6 +7,11 @@ body {
 
 /* Form styling start */
 
+.text_body_input {
+  width: 100%;
+  height: 200px;
+}
+
 .close_form {
   color: black;
   position: absolute;
@@ -91,5 +96,7 @@ input {
   width: 100%;
   border: 1px solid #666666;
 }
+
+
 
 /* Form styling end */

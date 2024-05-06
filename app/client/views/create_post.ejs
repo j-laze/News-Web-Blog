@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include("partials/metadata.ejs") %>
+
+    <link rel="alternative stylesheet" href="/styles/form.css" />
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal">
+        <div class="login_form">
+          <form>
+            <h1>Create a post</h1>
+  
+            <a href="/authed"
+              ><i class="fa fa-chevron-left close_form"></i
+            ></a>
+  
+            <div class="form_group">
+              <label for="title"
+                >Post title<span class="highlighted">*</span></label
+              >
+              <input
+                type="text"
+                id="title"
+                placeholder="Enter a Title for your post"
+                required
+              />
+            </div>
+            <div class="form_group">
+              <label for="text_body"
+                >Post content</label
+              >
+              <textarea name="text_body" id="text_body" class="text_body_input" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="buttons">
+              <button class="button" id="login_btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+</body>
+</html>

@@ -3,19 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/9d291d4d76.js"
-      crossorigin="anonymous"
-    ></script>
+    
+    <%- include("partials/metadata.ejs") %>
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/images/infostream-favicon-red.png"
-    />                                                      <!-- not sure why favicon is not showing, as its located in public assets hmm
-                                                           seems only not to work with link, but works fine when using <img> tag-->
-
-    <link rel="stylesheet" href="/styles/generic.css" />
     <link rel="alternative stylesheet" href="/styles/form.css" />
     <title>Infostream - Login</title>
   </head>
@@ -25,10 +15,10 @@
         <form action="/user/logged_in_index">
           <img
             class="logo"
-            src="../public/assets/images/logo-no-background.png"
+            src="/assets/images/logo-no-background.png"
           />
 
-          <a href="index.html"
+          <a href="/"
             ><i class="fa fa-chevron-left close_form"></i
           ></a>
 
