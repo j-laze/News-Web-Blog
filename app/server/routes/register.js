@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { User } = require('../../database/models'); // user models from db
+const { User } = require('../'); // user models from db
 const router = express.Router();
 
 router.use(express.json()); // for parsing json
