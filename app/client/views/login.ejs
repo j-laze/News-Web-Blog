@@ -3,18 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/9d291d4d76.js"
-      crossorigin="anonymous"
-    ></script>
+    
+    <%- include("partials/metadata.ejs") %>
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="../public/assets/images/infostream-favicon-red.png"
-    />
-    <link rel="stylesheet" href="../public/styles/generic.css" />
-    <link rel="alternative stylesheet" href="../public/styles/form.css" />
+    <link rel="alternative stylesheet" href="/styles/form.css" />
     <title>Infostream - Login</title>
   </head>
   <body>
@@ -23,10 +15,10 @@
         <form>
           <img
             class="logo"
-            src="../public/assets/images/logo-no-background.png"
+            src="/assets/images/logo-no-background.png"
           />
 
-          <a href="index2.html"
+          <a href="/"
             ><i class="fa fa-chevron-left close_form"></i
           ></a>
 
@@ -58,7 +50,7 @@
             <p>
               Not a member?
               <span class="highlighted"
-                ><a href="register.ejs">Register</a></span
+                ><a href="/register">Register</a></span
               >
             </p>
           </div>
