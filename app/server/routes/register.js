@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { User } = require('../'); // user models from db
+const sequelize = require('../../models/index.js'); // sequelize instance
+const { User } = require('../../models/user.js') // user models from db
 const router = express.Router();
 
 router.use(express.json()); // for parsing json
@@ -12,6 +13,16 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    const user = await User.create({
+        username: 'testUsername',
+        email: 'testEmail@test.com',
+        passwordHash: 'testPasswordHash',
+        twoFactorType: 'testTwoFactorType',
+        twoFactorInfo: 'testTwoFactorInfo',
+        isAdmin: false,
+        accountStatus: 'active'
+    });
+    console.log(user);
     const { username, email, password } = req.body;
     console.log(username, email, password);
 
