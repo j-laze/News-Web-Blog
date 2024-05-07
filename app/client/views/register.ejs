@@ -11,8 +11,8 @@
   </head>
   <body>
     <div class="modal">
-      <div class="login_form">
-        <form>
+      <div class="form">
+        <form id="register_form">
           <img
             class="logo"
             src="/assets/images/logo-no-background.png"
@@ -40,12 +40,14 @@
           </div>
 
           <div class="buttons">
-            <button type="submit" class="button" id="register_btn">Register</button>
+            <button type="submit" class="button">Register</button>
             <p>
               Already have an account?
               <span class="highlighted"><a href="/login">Login</a></span>
             </p>
           </div>
+          <div class="error_messages"></div>
+          <script src="/scripts/register.jss"></script>
         </form>
       </div>
     </div>

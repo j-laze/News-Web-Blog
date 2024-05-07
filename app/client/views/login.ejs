@@ -7,12 +7,13 @@
     <%- include("partials/metadata.ejs") %>
 
     <link rel="alternative stylesheet" href="/styles/form.css" />
+    
     <title>Infostream - Login</title>
   </head>
   <body>
     <div class="modal">
-      <div class="login_form">
-        <form action="/user/logged_in_index">
+      <div class="form">
+        <form id="login_form">
           <img
             class="logo"
             src="/assets/images/logo-no-background.png"
@@ -46,7 +47,7 @@
           </div>
 
           <div class="buttons">
-            <button class="button" id="login_btn" >Login</button>
+            <button type="submit" class="button" >Login</button>
             <p>
               Not a member?
               <span class="highlighted"
@@ -54,6 +55,8 @@
               >
             </p>
           </div>
+          <div id="error_messages" class="highlighted"></div>
+          <script src="/scripts/login.js"></script>
         </form>
       </div>
     </div>
