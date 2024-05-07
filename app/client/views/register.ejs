@@ -46,8 +46,9 @@
               <span class="highlighted"><a href="/login">Login</a></span>
             </p>
           </div>
-          <div class="error_messages"></div>
-          <script src="/scripts/register.jss"></script>
+          <% if (error_message != "none") { %>
+            <div id="status" class="highlighted"><%= error_message %></div>
+          <% } %>
         </form>
       </div>
     </div>
