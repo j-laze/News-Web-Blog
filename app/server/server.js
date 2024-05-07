@@ -16,7 +16,7 @@ app.use(express.static("client/public"));
 
 const userRouter = require('./routes/user');
 const registerRouter = require('./routes/register');
-//const postRouter = require('./routes/post');
+const postRouter = require('./routes/post');
 const loginRouter = require('./routes/login');
 
 app.use('/user', userRouter);
@@ -56,14 +56,3 @@ app.get("/authed/create_post", (req, res) => {
   res.render("create_post");
 });
 
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-app.get("/authed/user", (req, res) => {
-  res.render("profile");
-});

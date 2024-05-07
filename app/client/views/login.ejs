@@ -13,7 +13,7 @@
   <body>
     <div class="modal">
       <div class="form">
-        <form id="login_form" method="POST">
+        <form id="login_form", action="/login" method="POST">
           <img
             class="logo"
             src="/assets/images/logo-no-background.png"
@@ -55,8 +55,8 @@
               >
             </p>
           </div>
-          <div id="error_messages" class="highlighted"></div>
-          <script src="/scripts/login.js"></script>
+          <div id="status" class="hidden"><%= error_message %></div>
+          <!-- <script src="/scripts/login.js"></script> -->
         </form>
       </div>
     </div>
