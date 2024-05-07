@@ -39,7 +39,7 @@
               >Password<span class="highlighted">*</span></label
             >
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="Enter your Password"
               required
@@ -55,7 +55,9 @@
               >
             </p>
           </div>
-          <!-- <script src="/scripts/login.js"></script> -->
+          <% if (error_message != "none") { %>
+            <div id="status" class="highlighted"><%= error_message %></div>
+          <% } %>
         </form>
       </div>
     </div>

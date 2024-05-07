@@ -18,7 +18,7 @@ function containsXSS(text) {
 }
 
 router.get('/', (req, res) => {
-    res.render("login", { title: "Login Page" });
+    res.render("login", { title: "Login Page", error_message: "none" });
 });
 
 
@@ -29,15 +29,15 @@ router.post('/', async (req, res) => {
 
     //* Check for valid email address pattern
     if (!isValidEmail(email)) {
-
-        return res.redirect("/login");
+        
+        return res.render("login", { error_message: "Invalid Email Address or Password." });
     }
 
     //* Check that the password contain html tags
     if (containsXSS(email) || containsXSS(password)) {
         //console.log(containsXSS(email.value))
-
-        return res.redirect("/login");
+        
+        return res.render("login", { error_message: "Invalid Email Address or Password." });
     }
 
 
@@ -46,12 +46,6 @@ router.post('/', async (req, res) => {
 
     return res.redirect("/authed");
 });
-
-
-
-
-
-
 
 // passport.use(new localStrategy(
 //     async (username, password, done) => {
