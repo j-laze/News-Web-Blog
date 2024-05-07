@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
+const { User } = require('../models/user.js')// user models from db
+
 // const passport = require('passport');
 // const localStrategy = require('passport-local').Strategy;
 
@@ -19,29 +21,31 @@ router.get('/', (req, res) => {
     res.render("login", { title: "Login Page" });
 });
 
-router.post('/', async (req, res) => {
-    const {email, password} = req.body;
 
-    console.log(`Email: ${email}`);
-    console.log(`Password: ${password}`);
+router.post('/', async (req, res) => {
+    const {email, password} = await req.body;
+    const hashedPassword = await User.hash(password);
+    console.log(email, hashedPassword, password)
 
     //* Check for valid email address pattern
     if (!isValidEmail(email)) {
-        
+
         return res.redirect("/login");
     }
 
     //* Check that the password contain html tags
     if (containsXSS(email) || containsXSS(password)) {
         //console.log(containsXSS(email.value))
-        
+
         return res.redirect("/login");
     }
 
+
+
+    await User.loginCheck(email, password, res);
+
     return res.redirect("/authed");
 });
-
-
 
 
 

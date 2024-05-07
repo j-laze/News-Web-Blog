@@ -33,14 +33,14 @@ class User {
     }
 
 
-    static async loginCheck({email, password}) {
-        const query = `
-            SELECT * FROM users
-            WHERE email = email`;
 
+    static async loginCheck(users_email, password, res) {
+        console.log(users_email, password)
+        const query = `
+        SELECT * FROM users
+        WHERE email = $1`;
         try {
-            const result = await database.query(query);
-            console.log(result.rows)
+            const result = await database.query(query, [users_email]);
             const user = result.rows[0];
             if (!user) {
                 throw new Error('User not found');
@@ -49,6 +49,10 @@ class User {
             if (!passwordMatch) {
                 throw new Error('Password incorrect');
             }
+            const token = User.createUsertoken(user.user_id)
+            console.log(token)
+            console.log("user logged in", user.user_id)
+            await User.sendCookie(token, res)
             return user;
 
         } catch (error) {
@@ -56,13 +60,19 @@ class User {
             throw new Error('Error logging in');
         }
     }
+    static async sendCookie(token, res) {
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+            maxAge: 1000 * 60 * 60,
+            path: '/'
+        });
+    }
 
 
 
-
-
-
-   static async createUsertoken({user_id}) {
+   static async createUsertoken(user_id) {
         let ipaddress = "test"
         let payload = {user_id, ipaddress}
        return jwt.sign(payload, jwt_secret, {expiresIn: '1h'})
