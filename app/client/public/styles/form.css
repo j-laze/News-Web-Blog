@@ -65,11 +65,11 @@ body {
   cursor: pointer;
 }
 
-.login_form {
+.form {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.login_form form {
+.form form {
   border: 1px solid #de0000;
   border-radius: 10px;
   background: #f6f6f6;

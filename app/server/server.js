@@ -41,8 +41,6 @@ app.get("/authed/posts/:id", (req, res) => {
     const post_id = req.params.id;
     const post = posts.find((post) => post.id == post_id);
 
-
-
     if (post) {
         res.render(`post${post.id}`, { post });
     } else {
