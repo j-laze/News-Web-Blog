@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-//const db = require('../models/index.js');
-//const passport = require('passport');
-//const LocalStrategy = require('passport-local').Strategy;
-//const bodyParser = require('body-parser');
-//const bcrypt = require('bcrypt');
+const { initalizeDB } = require('./database/initalizeDB');
+const { User } = require('./models/user');
+
+
+(async () => {
+    await initalizeDB();
+})();
+
 
 app.set('views', path.join('client/', 'views'));
 app.set("view engine", "ejs");

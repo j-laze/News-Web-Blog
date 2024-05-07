@@ -9,6 +9,13 @@ router.get('/', (req, res) => {
 });
 
 
+router.post('/', async (req, res) => {
+    const {username, password} = req.body;
+
+
+});
+
+
 
 
 

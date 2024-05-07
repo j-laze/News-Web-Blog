@@ -13,7 +13,7 @@
   <body>
     <div class="modal">
       <div class="form">
-        <form id="login_form">
+        <form id="login_form" method="POST">
           <img
             class="logo"
             src="/assets/images/logo-no-background.png"
@@ -29,7 +29,7 @@
             >
             <input
               type="text"
-              id="email"
+              name="email"
               placeholder="Enter your Email Address"
               required
             />
@@ -40,7 +40,7 @@
             >
             <input
               type="text"
-              id="password"
+              name="password"
               placeholder="Enter your Password"
               required
             />

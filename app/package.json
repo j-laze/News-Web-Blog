@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "bcrypt": "^5.1.1",
