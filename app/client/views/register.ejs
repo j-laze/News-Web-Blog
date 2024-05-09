@@ -49,6 +49,17 @@
           <% if (error_message != "none") { %>
             <div id="status" class="highlighted"><%= error_message %></div>
           <% } %>
+          <% if (showPasswordRules) { %>
+            <div class="highlighted">
+              <ul class="passwordRules">
+                <li>a minimum of 8 characters</li>
+                <li>ONE upper case letter</li>
+                <li>ONE lower case letter</li>
+                <li>ONE number</li>
+                <li>ONE special character (!?_@#$%^&*)</li>
+              </ul>
+            </div>
+          <% } %>
         </form>
       </div>
     </div>

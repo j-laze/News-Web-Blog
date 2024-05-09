@@ -12,11 +12,11 @@
 </head>
 <body>
     <div class="modal">
-        <div class="login_form">
-          <form>
+        <div class="form">
+          <form id="post_form" action="/post" method="POST">
             <h1>Create a post</h1>
   
-            <a href="/authed"
+            <a href="/authed?username=<%= username %>"
               ><i class="fa fa-chevron-left close_form"></i
             ></a>
   
@@ -26,7 +26,7 @@
               >
               <input
                 type="text"
-                id="title"
+                name="title"
                 placeholder="Enter a Title for your post"
                 required
               />
@@ -35,12 +35,15 @@
               <label for="text_body"
                 >Post content</label
               >
-              <textarea name="text_body" id="text_body" class="text_body_input" cols="30" rows="10"></textarea>
+              <textarea name="text_body" class="text_body_input" cols="30" rows="10"></textarea>
             </div>
 
             <div class="buttons">
-              <button class="button" id="login_btn">Submit</button>
+              <button type="submit" class="button">Submit</button>
             </div>
+            <% if (error_message != "none") { %>
+              <div id="status" class="highlighted"><%= error_message %></div>
+            <% } %>
           </form>
         </div>
       </div>

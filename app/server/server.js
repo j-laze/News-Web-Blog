@@ -21,7 +21,7 @@ const loginRouter = require('./routes/login');
 
 app.use('/user', userRouter);
 app.use('/register', registerRouter);
-//app.use('/post', postRouter);
+app.use('/post', postRouter);
 app.use('/login', loginRouter);
 
 const posts = [
@@ -38,7 +38,8 @@ app.listen(5000, () => {
 });
 
 app.get("/authed", (req, res) => {
-    res.render("logged_in_index", { posts });
+    var username = req.query.username;
+    res.render("logged_in_index", { posts, username });
 });
 
 app.get("/authed/posts/:id", (req, res) => {
@@ -51,8 +52,3 @@ app.get("/authed/posts/:id", (req, res) => {
         res.status(404);
     }
 });
-
-app.get("/authed/create_post", (req, res) => {
-  res.render("create_post");
-});
-

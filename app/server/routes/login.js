@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const { User } = require('../models/user.js')// user models from db
+const url = require('url');
 
 // const passport = require('passport');
 // const localStrategy = require('passport-local').Strategy;
@@ -23,6 +24,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     const {email, password} = await req.body;
     const hashedPassword = await User.hash(password);
     console.log(email, hashedPassword, password)
@@ -41,10 +43,18 @@ router.post('/', async (req, res) => {
     }
 
 
-
-    await User.loginCheck(email, password, res);
-
-    return res.redirect("/authed");
+    try {
+        var user = await User.loginCheck(email, password, res);
+    } catch (error) {
+        return res.render("login", { error_message: "Invalid Email Address or Password." });
+    }
+    //console.log(user.username)
+    return res.redirect(url.format({
+        pathname:"/authed",
+        query: {
+            "username": user.username
+        }
+    }));
 });
 
 // passport.use(new localStrategy(
