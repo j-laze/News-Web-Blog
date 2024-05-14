@@ -44,7 +44,7 @@ class User {
     const post_id = await uuidv4();
     const timestamp = new Date().toLocaleString();
     const query = `
-            INSERT INTO posts (post_id, user_id, title, content, timestamp)
+            INSERT INTO posts (post_id, user_id, title, content, created_at)
             VALUES ($1, $2, $3, $4, $5)
     `;
 
