@@ -58,7 +58,7 @@ class User {
     }
   }
 
-  static async create({ username, password, email }) {
+  static async create({ username, password, email, res }) {
     const user_id = await uuidv4();
     const hashedPassword = await bcrypt.hash(password, 10);
     const query = `
@@ -71,8 +71,11 @@ class User {
       await database.query(query, values);
     } catch (error) {
       console.error(error);
-      throw new Error("Error creating user");
+      res.redirect("/register");
+      return
+
     }
+    res.redirect("/login")
   }
 
   static async loginCheck(users_email, password, res, req) {
