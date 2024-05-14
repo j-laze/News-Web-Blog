@@ -14,15 +14,15 @@ app.use(express.static("client/public"));
 
 const userRouter = require("./routes/user");
 const registerRouter = require("./routes/register");
-const postRouter = require("./routes/post");
 const loginRouter = require("./routes/login");
 const authRouter = require("./routes/auth");
+const logoutRouter = require("./routes/logout");
 
 app.use("/user", userRouter);
 app.use("/register", registerRouter);
-app.use("/post", postRouter);
 app.use("/login", loginRouter);
 app.use("/auth", authRouter);
+app.use("/logout", logoutRouter);
 
 const posts = [
   { id: 1, title: "foo", content: "lorem ipsum..." },
@@ -42,6 +42,7 @@ app.listen(5000, () => {
 
 app.get("/", async (req, res) => {
   const posts = await User.getAllPosts();
+  console.log(posts)
   res.render("public_index", { posts });
 });
 
