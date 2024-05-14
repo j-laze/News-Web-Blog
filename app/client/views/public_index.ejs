@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <%- include("partials/metadata.ejs") %>
-    <title>InfoStream - <%= post.title %></title>
+
+    <title>InfoStream</title>
   </head>
   <body>
-    <%- include("partials/authed_nav_header.ejs") %>
+    <%- include("partials/public_nav_header.ejs") %>
 
-    <main>
-      <h1><%= post.title %></h1>
-
-      <p><%= post.content %></p>
-    </main>
+    <main>Public stack</main>
   </body>
 </html>
