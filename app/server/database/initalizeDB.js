@@ -4,7 +4,7 @@ const client = new Client({
     user: 'postgres',
     host: 'localhost',
     database: 'news_blog',
-    password: 'YOUR_PASSWORD_HERE',
+    password: 'test3123!',
     port: 5432,
 });
 
@@ -12,9 +12,9 @@ const client = new Client({
 const createUsersTable = `
     CREATE TABLE IF NOT EXISTS users (
         user_id VARCHAR(36) PRIMARY KEY,
-        username VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL
+        username VARCHAR(255) NOT NULL UNIQUE ,
+        password VARCHAR(255) NOT NULL ,
+        email VARCHAR(255) NOT NULL UNIQUE
     );
 `;
 
