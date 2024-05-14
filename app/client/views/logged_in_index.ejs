@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%- include("partials/metadata.ejs") %>
+  <%- include("partials/metadata.ejs") %>
 
-    <title>InfoStream</title>
-  </head>
-  <body>
-    <%- include("partials/authed_nav_header.ejs") %>
-    <main>
-      <!-- Content -->
-      <div class="main_content">
-        <h1 class="posts_title">Recent Posts</h1>
-        <ul>
-
-        </ul>
-      </div>
-      <!-- Content end -->
-    </main>
-  </body>
+  <title>InfoStream</title>
+  <link rel="stylesheet" type="text/css" href="/styles/button.css" />
+</head>
+<body>
+<%- include("partials/authed_nav_header.ejs") %>
+<main>
+  <!-- Content -->
+  <div class="main_content">
+    <h1 class="posts_title">Recent Posts</h1>
+    <ul>
+      <% posts.forEach((post) => { %>
+        <li>
+          <form action="/auth/postpage" method="POST">
+            <input type="hidden" name="postId" value='<%= JSON.stringify(post) %>'>
+            <button type="submit" class="link-button">
+              <h2><%= post.title %></h2>
+            </button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+  <!-- Content end -->
+</main>
+</body>
 </html>

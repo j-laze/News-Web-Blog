@@ -12,12 +12,21 @@ const bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(express.json());
 
-router.get("/", isauthed, (req, res) => {
-  res.render("logged_in_index", { title: "Logged In Index" });
+router.get("/", isauthed, async (req, res) => {
+  const posts = await User.getUserPosts(req.user_id);
+  console.log(posts)
+  res.render("logged_in_index", {title: "Logged In Index", posts});
+
 });
 
 router.get("/createpost", isauthed, (req, res) => {
   res.render("create_post", { error_message: "none" });
+});
+
+router.post("/postpage", isauthed, async (req, res) => {
+  const post = JSON.parse(req.body.postId);
+  res.render("post_page", { post });
+  
 });
 
 router.post("/createpost", isauthed, async (req, res) => {
