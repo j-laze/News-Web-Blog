@@ -33,6 +33,8 @@ class User {
     `;
     try {
       const result = await database.query(query, [user_id]);
+
+      return result.rows;
     } catch (error) {
       console.error(error);
     }
