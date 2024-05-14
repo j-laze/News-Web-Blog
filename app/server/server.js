@@ -27,8 +27,7 @@ const posts = [
   {
     id: 2,
     title: "CONFIDENTIAL",
-    content:
-      "Fair play to Aaron Hunt man went from chilling with simple Simon and Luke Bennett to kicking ball with Wayne Rooney round his gaff genuinely sound geeza aswell fr",
+    content: "Hello world",
   },
 ];
 
@@ -39,7 +38,7 @@ app.listen(5000, () => {
 });
 
 app.get("/", (req, res) => {
-  res.render("public_index");
+  res.render("public_index", { posts });
 });
 
 app.get("/authed", (req, res) => {
