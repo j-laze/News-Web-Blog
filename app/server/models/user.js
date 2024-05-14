@@ -40,6 +40,24 @@ class User {
     }
   }
 
+  static async createPost(user_id, title, content) {
+    const post_id = await uuidv4();
+    const timestamp = new Date().toLocaleString();
+    const query = `
+            INSERT INTO posts (post_id, user_id, title, content, timestamp)
+            VALUES ($1, $2, $3, $4, $5)
+    `;
+
+    const values = [post_id, user_id, title, content, timestamp];
+
+    try {
+      await database.query(query, values);
+    } catch (error) {
+      console.error(error);
+      throw new Error("Error creating post");
+    }
+  }
+
   static async create({ username, password, email }) {
     const user_id = await uuidv4();
     const hashedPassword = await bcrypt.hash(password, 10);
