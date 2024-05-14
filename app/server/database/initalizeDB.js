@@ -23,7 +23,7 @@ const createUsersTable = `
 
 const createPostsTable = `
     CREATE TABLE IF NOT EXISTS posts (
-        post_id SERIAL PRIMARY KEY,
+        post_id VARCHAR(36) PRIMARY KEY,
         user_id VARCHAR(36),
         title VARCHAR(255) NOT NULL,
         content TEXT NOT NULL,

@@ -34,6 +34,7 @@ router.post("/createpost", isauthed, async (req, res) => {
     text_body = generic_methods.replaceXSS(text_body);
     console.log(`Sanitised content: ${text_body}`);
   }
+  User.createPost(req.user_id, title, text_body);
 
   res.redirect(`/auth`);
 });

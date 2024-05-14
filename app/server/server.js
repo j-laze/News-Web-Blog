@@ -39,7 +39,9 @@ app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
 
-app.get("/", (req, res) => {
+
+app.get("/", async (req, res) => {
+  const posts = await User.getAllPosts();
   res.render("public_index", { posts });
 });
 
