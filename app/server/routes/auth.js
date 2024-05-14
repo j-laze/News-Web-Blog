@@ -59,6 +59,16 @@ router.get("/dashboard", isauthed, async (req, res) => {
 
 async function isauthed(req, res, next) {
   try {
+    if (!req.cookies.token) {
+      // Token is not provided
+      throw new Error("No token provided");
+    }
+  } catch (err) {
+    return res.status(401).render("login", {
+      error_message: err.message,
+    });
+  }
+  try {
     // Verify the token and extract the user ID
     const decodedToken = jwt.verify(req.cookies.token, jwt_secret);
     req.user_id = decodedToken.user_id;
@@ -73,7 +83,7 @@ async function isauthed(req, res, next) {
         console.log("IP Address does not match");
         console.log(decodedToken.ipaddress, current_user_ip);
         return res.status(401).render("login", {
-          message: "Invalid token",
+          error_message: "Invalid token",
         });
       }
       // User is authenticated, proceed to the next middleware function or route handler
@@ -81,14 +91,14 @@ async function isauthed(req, res, next) {
     } else {
       // User does not exist, return an error
       return res.status(401).render("login", {
-        message: "Invalid token",
+        error_message: "Invalid token",
       });
     }
   } catch (err) {
     // Token is not valid or user does not exist
     console.log(err.message);
     res.status(401).render("login", {
-      message: "Token expired or tampered",
+      error_message: "Token expired or tampered",
     });
   }
 }
