@@ -1,5 +1,7 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const router = express.Router();
+router.use(cookieParser());
 const { User } = require('../models/user.js'); // user models from db
 
 router.get('/', isauthed,  (req, res) => {
@@ -11,14 +13,10 @@ router.get('/', isauthed,  (req, res) => {
 const jwt_secret = 'test';
 const { client: database } = require('../database/initalizeDB.js');
 const jwt = require("jsonwebtoken");
-const cookieParser = require('cookie-parser');
-router.use(cookieParser());
+
 
 
 async function isauthed(req, res, next) {
-
-    await console.log("should be token" ,req.cookies)
-
     try {
         // Verify the token and extract the user ID
         const decodedToken = jwt.verify(req.cookies.token, jwt_secret);
