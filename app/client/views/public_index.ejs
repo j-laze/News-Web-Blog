@@ -11,6 +11,19 @@
   <body>
     <%- include("partials/public_nav_header.ejs") %>
 
-    <main>Public stack</main>
+    <main>
+      <!-- Content -->
+      <div class="main_content">
+        <h1 class="posts_title">Recent Posts</h1>
+        <ul>
+          <% posts.forEach((post) => { %>
+          <li>
+            <a><%= post.title %></a>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+      <!-- Content end -->
+    </main>
   </body>
 </html>

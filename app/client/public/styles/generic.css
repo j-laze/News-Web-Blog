@@ -111,7 +111,7 @@ header ul {
 main {
   width: 90%;
   margin: 30px auto 30px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .main_content {
