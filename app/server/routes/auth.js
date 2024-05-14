@@ -1,16 +1,30 @@
-const jwt = require('jsonwebtoken');
+const express = require('express');
+const router = express.Router();
 const { User } = require('../models/user.js'); // user models from db
+
+router.get('/', isauthed,  (req, res) => {
+    res.render('logged_in_index', { title: 'Logged In Index' });
+
+});
+
+
 const jwt_secret = 'test';
 const { client: database } = require('../database/initalizeDB.js');
+const jwt = require("jsonwebtoken");
+const cookieParser = require('cookie-parser');
+router.use(cookieParser());
 
 
 async function isauthed(req, res, next) {
-    await console.log("here should be token ", req.cookies)
+
+    await console.log("should be token" ,req.cookies)
+
     try {
         // Verify the token and extract the user ID
         const decodedToken = jwt.verify(req.cookies.token, jwt_secret);
         req.user_id = decodedToken.user_id;
         const decoded_user_id = req.user_id
+        console.log("userid", decoded_user_id)
         const query = 'SELECT * FROM users WHERE user_id = $1';
         const values = [decoded_user_id];
         const result = await database.query(query, values);
@@ -40,5 +54,4 @@ async function isauthed(req, res, next) {
         });
     }
 }
-
-module.exports = { isauthed };
+module.exports = router;

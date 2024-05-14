@@ -12,7 +12,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(express.json());
 
 router.get("/", (req, res) => {
-  res.render("login", { title: "Login Page", error_message: "none" });
+  return res.render("login", { title: "Login Page", error_message: "none" });
 });
 
 router.post("/", async (req, res) => {
@@ -40,23 +40,18 @@ router.post("/", async (req, res) => {
     });
   }
 
+console.log("login check here ")
   try {
-    var user = await User.loginCheck(email, password, res);
+    var user = await User.loginCheck(email, password, res, req);
+    console.log("user", user)
+    res.redirect('/auth');
   } catch (error) {
+    console.error('Error logging in', error);
     return res.render("login", {
       error_message: "Invalid Email Address or Password.",
     });
-  }
-  //console.log(user.username)
-  return res.redirect(
-    url.format({
-      pathname: "/authed",
-      query: {
-        username: user.username,
-      },
-    })
-  );
-});
+  }});
+
 
 // passport.use(new localStrategy(
 //     async (username, password, done) => {

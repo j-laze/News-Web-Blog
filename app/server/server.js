@@ -16,11 +16,13 @@ const userRouter = require("./routes/user");
 const registerRouter = require("./routes/register");
 const postRouter = require("./routes/post");
 const loginRouter = require("./routes/login");
+const authRouter = require("./routes/auth");
 
 app.use("/user", userRouter);
 app.use("/register", registerRouter);
 app.use("/post", postRouter);
 app.use("/login", loginRouter);
+app.use("/auth", authRouter);
 
 const posts = [
   { id: 1, title: "foo", content: "lorem ipsum..." },
@@ -41,18 +43,4 @@ app.get("/", (req, res) => {
   res.render("public_index", { posts });
 });
 
-app.get("/authed", (req, res) => {
-  var username = req.query.username;
-  res.render("logged_in_index", { posts, username });
-});
 
-app.get("/authed/posts/:id", (req, res) => {
-  const post_id = req.params.id;
-  const post = posts.find((post) => post.id == post_id);
-
-  if (post) {
-    res.render(`post_page`, { post });
-  } else {
-    res.status(404);
-  }
-});

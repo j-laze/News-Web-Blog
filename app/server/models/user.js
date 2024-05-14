@@ -7,6 +7,7 @@ const jwt_secret = "test"
 
 
 
+
 class User {
 
     static async hash (item_to_hash){
@@ -34,7 +35,7 @@ class User {
 
 
 
-    static async loginCheck(users_email, password, res) {
+    static async loginCheck(users_email, password, res, req) {
         console.log(users_email, password)
         const query = `
         SELECT * FROM users
@@ -49,9 +50,7 @@ class User {
             if (!passwordMatch) {
                 throw new Error('Password incorrect');
             }
-            const token = User.createUsertoken(user.user_id)
-            console.log(token)
-            console.log("user logged in", user.user_id)
+            const token = await User.createUsertoken(user.user_id, req)
             await User.sendCookie(token, res)
             return user;
 
@@ -59,12 +58,15 @@ class User {
             console.error(error);
             throw new Error('Error logging in');
         }
+
+         let cookie = req.cookies;
+        console.log(cookie)
     }
     static async sendCookie(token, res) {
         res.cookie('token', token, {
             httpOnly: true,
-            secure: true,
             sameSite: 'none',
+            secure: false,
             maxAge: 1000 * 60 * 60,
             path: '/'
         });
@@ -72,8 +74,8 @@ class User {
 
 
 
-   static async createUsertoken(user_id) {
-        let ipaddress = "test"
+   static async createUsertoken(user_id, req) {
+        let ipaddress = req.connection.remoteAddress;
         let payload = {user_id, ipaddress}
        return jwt.sign(payload, jwt_secret, {expiresIn: '1h'})
 
