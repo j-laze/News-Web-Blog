@@ -38,6 +38,10 @@ app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
 
+app.get("/", (req, res) => {
+  res.render("public_index");
+});
+
 app.get("/authed", (req, res) => {
   var username = req.query.username;
   res.render("logged_in_index", { posts, username });

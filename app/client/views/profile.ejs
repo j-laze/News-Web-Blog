@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <%- include("partials/metadata.ejs") %>
 
     <title>Document</title>
-</head>
-<body>
-
-    <%- include("partials/nav_header.ejs") %>
+  </head>
+  <body>
+    <%- include("partials/authed_nav_header.ejs") %>
 
     <main>
-        <h1>
-            <%= username %>
-        </h1>
+      <h1><%= username %></h1>
 
-        <div class="post_list">
-            <p>
-                List of <%= username %>'s posts
-            </p>
-        </div>
-
+      <div class="post_list">
+        <p>List of <%= username %>'s posts</p>
+      </div>
     </main>
-</body>
+  </body>
 </html>

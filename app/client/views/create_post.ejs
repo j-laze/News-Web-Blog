@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <%- include("partials/metadata.ejs") %>
 
     <link rel="alternative stylesheet" href="/styles/form.css" />
 
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="modal">
-        <div class="form">
-          <form id="post_form" action="/post" method="POST">
-            <h1>Create a post</h1>
-  
-            <a href="/authed?username=<%= username %>"
-              ><i class="fa fa-chevron-left close_form"></i
-            ></a>
-  
-            <div class="form_group">
-              <label for="title"
-                >Post title<span class="highlighted">*</span></label
-              >
-              <input
-                type="text"
-                name="title"
-                placeholder="Enter a Title for your post"
-                required
-              />
-            </div>
-            <div class="form_group">
-              <label for="text_body"
-                >Post content</label
-              >
-              <textarea name="text_body" class="text_body_input" cols="30" rows="10"></textarea>
-            </div>
+      <div class="form">
+        <form id="post_form" action="/post" method="POST">
+          <h1>Create a post</h1>
 
-            <div class="buttons">
-              <button type="submit" class="button">Submit</button>
-            </div>
-            <% if (error_message != "none") { %>
-              <div id="status" class="highlighted"><%= error_message %></div>
-            <% } %>
-          </form>
-        </div>
+          <a href="/authed?username=<%= username %>"
+            ><i class="fa fa-chevron-left close_form"></i
+          ></a>
+
+          <div class="form_group">
+            <label for="title"
+              >Post title<span class="highlighted">*</span></label
+            >
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter a Title for your post"
+              required
+            />
+          </div>
+          <div class="form_group">
+            <label for="text_body">Post content</label>
+            <textarea
+              name="text_body"
+              class="text_body_input"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+
+          <div class="buttons">
+            <button type="submit" class="button">Submit</button>
+          </div>
+          <% if (error_message != "none") { %>
+          <div id="status" class="highlighted"><%= error_message %></div>
+          <% } %>
+        </form>
       </div>
-    
-</body>
+    </div>
+  </body>
 </html>

@@ -12,31 +12,58 @@
   <body>
     <div class="modal">
       <div class="form">
-          <form action="/register" method="POST" id="register_form">
-          <img
-            class="logo"
-            src="/assets/images/logo-no-background.png"
-          />
+        <form action="/register" method="POST" id="register_form">
+          <img class="logo" src="/assets/images/logo-no-background.png" />
 
-          <a href="/"
-            ><i class="fa fa-chevron-left close_form"></i
-          ></a>
+          <a href="/"><i class="fa fa-chevron-left close_form"></i></a>
 
           <div class="form_group">
-            <label for="email">Email Address<span class="highlighted">*</span></label>
-            <input type="text" id="email" name="email" placeholder="Enter your Email Address" required />
+            <label for="email"
+              >Email Address<span class="highlighted">*</span></label
+            >
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter your Email Address"
+              required
+            />
           </div>
           <div class="form_group">
-            <label for="username">Username<span class="highlighted">*</span></label>
-            <input type="text" id="username" name="username" placeholder="Enter a Username" required />
+            <label for="username"
+              >Username<span class="highlighted">*</span></label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter a Username"
+              required
+            />
           </div>
           <div class="form_group">
-            <label for="password">Password<span class="highlighted">*</span></label>
-            <input type="password" id="password" name="password" placeholder="Enter a Password" required />
+            <label for="password"
+              >Password<span class="highlighted">*</span></label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter a Password"
+              required
+            />
           </div>
           <div class="form_group">
-            <label for="confirm_password">Confirm Password<span class="highlighted">*</span></label>
-            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your Password" required />
+            <label for="confirm_password"
+              >Confirm Password<span class="highlighted">*</span></label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              placeholder="Confirm your Password"
+              required
+            />
           </div>
 
           <div class="buttons">
@@ -47,18 +74,17 @@
             </p>
           </div>
           <% if (error_message != "none") { %>
-            <div id="status" class="highlighted"><%= error_message %></div>
-          <% } %>
-          <% if (showPasswordRules) { %>
-            <div class="highlighted">
-              <ul class="passwordRules">
-                <li>a minimum of 8 characters</li>
-                <li>ONE upper case letter</li>
-                <li>ONE lower case letter</li>
-                <li>ONE number</li>
-                <li>ONE special character (!?_@#$%^&*)</li>
-              </ul>
-            </div>
+          <div id="status" class="highlighted"><%= error_message %></div>
+          <% } %> <% if (showPasswordRules) { %>
+          <div class="highlighted">
+            <ul class="passwordRules">
+              <li>a minimum of 8 characters</li>
+              <li>ONE upper case letter</li>
+              <li>ONE lower case letter</li>
+              <li>ONE number</li>
+              <li>ONE special character (!?_@#$%^&*)</li>
+            </ul>
+          </div>
           <% } %>
         </form>
       </div>
