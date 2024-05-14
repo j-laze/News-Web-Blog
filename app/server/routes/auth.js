@@ -26,7 +26,7 @@ router.get("/createpost", isauthed, (req, res) => {
 router.post("/postpage", isauthed, async (req, res) => {
   const post = JSON.parse(req.body.postId);
   res.render("post_page", { post });
-  
+
 });
 
 router.post("/createpost", isauthed, async (req, res) => {
@@ -51,7 +51,7 @@ router.post("/createpost", isauthed, async (req, res) => {
 router.get("/dashboard", isauthed, async (req, res) => {
   try {
     const posts = await User.getUserPosts(req.user_id);
-    res.render("dashboard", { posts });
+    res.render("dashboard", { title: "Dashboard", posts });
   } catch (error) {
     console.error(error);
   }
