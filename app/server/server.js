@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const { initalizeDB } = require("./database/initalizeDB");
+const { initializeDB } = require("./database/initalizeDB");
 const { User } = require("./models/user");
 
 (async () => {
-  await initalizeDB();
+  await initializeDB();
 })();
 
 app.set("views", path.join("client/", "views"));
