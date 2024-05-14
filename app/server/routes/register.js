@@ -58,8 +58,7 @@ router.post("/", async (req, res) => {
     });
   }
 
-  await User.create({ username, password, email });
-  res.redirect("/");
+  await User.create({ username, password, email, res });
 });
 
 module.exports = router;
