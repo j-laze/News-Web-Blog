@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const https = require("https");
+const fs = require("fs");
 const { initializeDB } = require("./database/initalizeDB");
 const { User } = require("./models/user");
 
@@ -35,8 +37,13 @@ const posts = [
 
 const users = [{ user_id: 1, username: "qwerty123" }];
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
+const HTTPS_SERVER = https.createServer({
+  key: fs.readFileSync(path.join(__dirname, './SSL_key_cert/key.pem')),
+  cert: fs.readFileSync(path.join(__dirname, './SSL_key_cert/cert.pem'))
+}, app);
+
+HTTPS_SERVER.listen(5000, () => {
+  console.log("Server is running on port 5000 with SSL");
 });
 
 
