@@ -105,8 +105,8 @@ class User {
   static async sendCookie(token, res) {
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "none",
-      secure: false,
+      sameSite: "strict",
+      secure: true,
       maxAge: 1000 * 60 * 60,
       path: "/",
     });

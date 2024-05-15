@@ -26,16 +26,6 @@ app.use("/login", loginRouter);
 app.use("/auth", authRouter);
 app.use("/logout", logoutRouter);
 
-const posts = [
-  { id: 1, title: "foo", content: "lorem ipsum..." },
-  {
-    id: 2,
-    title: "CONFIDENTIAL",
-    content: "Hello world",
-  },
-];
-
-const users = [{ user_id: 1, username: "qwerty123" }];
 
 const HTTPS_SERVER = https.createServer({
   key: fs.readFileSync(path.join(__dirname, './SSL_key_cert/key.pem')),
