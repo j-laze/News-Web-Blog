@@ -1,13 +1,12 @@
-const { Client } = require('pg');
+const { Client } = require("pg");
 
 const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'news_blog',
-    password: 'test3123!',
-    port: 5432,
+  user: "postgres",
+  host: "localhost",
+  database: "news_blog",
+  password: "postgres123",
+  port: 5432,
 });
-
 
 const createUsersTable = `
     CREATE TABLE IF NOT EXISTS users (
@@ -17,9 +16,6 @@ const createUsersTable = `
         email VARCHAR(255) NOT NULL UNIQUE
     );
 `;
-
-
-
 
 const createPostsTable = `
     CREATE TABLE IF NOT EXISTS posts (
@@ -32,20 +28,16 @@ const createPostsTable = `
     );
 `;
 
-
 async function initializeDB() {
-    try {
-        await client.connect();
-        await client.query(createUsersTable);
-        console.log('Users table created successfully');
-        await client.query(createPostsTable);
-        console.log('Posts table created successfully');
-    } catch (err) {
-        console.error('Error executing query', err.stack);
-    }
+  try {
+    await client.connect();
+    await client.query(createUsersTable);
+    console.log("Users table created successfully");
+    await client.query(createPostsTable);
+    console.log("Posts table created successfully");
+  } catch (err) {
+    console.error("Error executing query", err.stack);
+  }
 }
 
-
-
-
-module.exports = { client, initializeDB}
+module.exports = { client, initializeDB };

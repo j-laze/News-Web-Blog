@@ -2,8 +2,7 @@ const { client: database } = require("../database/initalizeDB.js");
 const jwt = require("jsonwebtoken");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
-
-const jwt_secret = "test";
+require("dotenv").config();
 
 class User {
   static async hash(item_to_hash) {
@@ -72,10 +71,9 @@ class User {
     } catch (error) {
       console.error(error);
       res.redirect("/register");
-      return
-
+      return;
     }
-    res.redirect("/login")
+    res.redirect("/login");
   }
 
   static async loginCheck(users_email, password, res, req) {
@@ -117,7 +115,7 @@ class User {
   static async createUsertoken(user_id, req) {
     let ipaddress = req.connection.remoteAddress;
     let payload = { user_id, ipaddress };
-    return jwt.sign(payload, jwt_secret, { expiresIn: "1h" });
+    return jwt.sign(payload, process.env.jwt_secret, { expiresIn: "1h" });
   }
 }
 

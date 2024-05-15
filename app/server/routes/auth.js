@@ -14,9 +14,8 @@ router.use(express.json());
 
 router.get("/", isauthed, async (req, res) => {
   const posts = await User.getUserPosts(req.user_id);
-  console.log(posts)
-  res.render("logged_in_index", {title: "Logged In Index", posts});
-
+  console.log(posts);
+  res.render("logged_in_index", { title: "Logged In Index", posts });
 });
 
 router.get("/createpost", isauthed, (req, res) => {
@@ -24,9 +23,13 @@ router.get("/createpost", isauthed, (req, res) => {
 });
 
 router.post("/postpage", isauthed, async (req, res) => {
-  const post = JSON.parse(req.body.postId);
-  res.render("post_page", { post });
-
+  if (generic_methods.containsXSS(req.body.postId)) {
+    const post = JSON.parse(generic_methods.replaceXSS(req.body.postId));
+    res.render("post_page", { post });
+  } else {
+    const post = JSON.parse(req.body.postId);
+    res.render("post_page", { post });
+  }
 });
 
 router.post("/createpost", isauthed, async (req, res) => {
