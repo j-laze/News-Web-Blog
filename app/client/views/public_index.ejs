@@ -7,6 +7,7 @@
     <%- include("partials/metadata.ejs") %>
 
     <title>InfoStream</title>
+    <link rel="stylesheet" type="text/css" href="/styles/button.css" />
   </head>
   <body>
     <%- include("partials/public_nav_header.ejs") %>
@@ -17,7 +18,7 @@
         <h1 class="posts_title">Recent Posts</h1>
         <ul>
           <% posts.forEach((post) => { %>
-          <li>
+          <li class="link-button">
             <h1><strong><%= post.title %></strong></h1>
           </li>
           <% }) %>

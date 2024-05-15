@@ -118,6 +118,17 @@ main {
   width: 100%;
 }
 
+.main_content ul {
+  list-style: none;
+}
+
+.post_content {
+  padding: 3px;
+  background-color: #f3f3f3;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+}
+
 /* Content end */
 
 /* Media Queries start*/
@@ -183,7 +194,6 @@ main {
     /* border: 1px solid red; */
     height: 60px;
   }
-  
 }
 
 /* Media Queries end */
